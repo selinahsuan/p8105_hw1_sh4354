@@ -5,7 +5,7 @@ output: github_document
 
 PROBLEM 1
 
-Load library
+Load libraries
 ```{r}
 library(moderndive)
 
@@ -19,8 +19,10 @@ data("early_january_weather")
 
 Find mean temperature
 ```{r}
-df=early_january_weather
+df=early_january_weather 
 mean(df$temp)
+
+summary(early_january_weather)
 ```
 
 There are 15 variables in this dataset, which include origin, year, month, day, hour, and temperature. 
@@ -41,5 +43,39 @@ Save scatterplot to project directory
 ggsave("scatterplot.pdf")
 ```
 
+PROBLEM 2
+
+Create dataframe
+
+```{r}
+p2_df = tibble(
+  norm_samp = rnorm(10, sd=1),
+  vec_logical = norm_samp > 0,
+  vec_char <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor <- factor(rep(c("Level1", "Level2", "Level3"), length.out = 10))
+  )
+```
+
+Find means of each variable in p2_df
+
+```{r}
+mean(pull(p2_df, norm_samp))
+mean(pull(p2_df, vec_logical))
+```
+
+```{r, eval=FALSE}
+mean(pull(p2_df, vec_char))
+mean(pull(p2_df, vec_factor))
+```
+
+The code does not work when trying to determine the means of the character vector and factor vector. 
+
+```{r, eval=FALSE}
+as.numeric(pull(p2_df, vec_logical))
+as.numeric(pull(p2_df, vec_char))
+as.numeric(pull(p2_df, vec_factor))
+```
+
+The code does not work when trying to convert the character vector and factor vector. This is because these vectors do not have column names. 
 
 
