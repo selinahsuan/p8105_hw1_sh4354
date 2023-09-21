@@ -36,7 +36,10 @@ ggplot(early_january_weather, aes(x = time_hour, y = temp, color=humid)) + geom_
 ```
 The scatterplot shows that temperature increases as POSIXct data increases. In addition, humidity generally increases as both temperature and POSIXct data increases. 
 
-
+Save scatterplot to project directory
+```{r}
+ggsave("scatterplot.pdf")
+```
 
 
 
