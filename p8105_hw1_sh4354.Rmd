@@ -3,19 +3,40 @@ title: "HW 1"
 output: github_document
 ---
 
-I'm an R Markdown document! 
+PROBLEM 1
 
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
+Load library
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(moderndive)
+
+library(tidyverse)
 ```
 
-# Section 2
+Load dataset
+```{r}
+data("early_january_weather")
+```
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+Find mean temperature
+```{r}
+df=early_january_weather
+mean(df$temp)
+```
+
+There are 15 variables in this dataset, which include origin, year, month, day, hour, and temperature. 
+The number of rows in the dataset is `r nrow(early_january_weather)`.
+The number of columns in the dataset is `r ncol(early_january_weather)`.
+The mean temperature is `r mean(df$temp)`.
+
+
+Make scatterplot
+```{r}
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color=humid)) + geom_point()
+
+```
+The scatterplot shows that temperature increases as POSIXct data increases. In addition, humidity generally increases as both temperature and POSIXct data increases. 
+
+
+
+
+
