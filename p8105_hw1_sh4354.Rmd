@@ -59,8 +59,8 @@ Create dataframe
 p2_df = tibble(
   norm_samp = rnorm(10, sd=1),
   vec_logical = norm_samp > 0,
-  vec_char <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
-  vec_factor <- factor(rep(c("Level1", "Level2", "Level3"), length.out = 10))
+  vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor = factor(rep(c("Level1", "Level2", "Level3"), length.out = 10))
   )
 ```
 
