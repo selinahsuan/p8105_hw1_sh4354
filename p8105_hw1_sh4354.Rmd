@@ -1,9 +1,11 @@
 ---
-title: "HW 1"
+title: "p8105 HW 1"
+author: Selina Hsuan
+date: 9/23/2023
 output: github_document
 ---
 
-PROBLEM 1
+**PROBLEM 1**
 
 Load libraries
 ```{r}
@@ -17,17 +19,20 @@ Load dataset
 data("early_january_weather")
 ```
 
-Find mean temperature
+Set dataframe
 ```{r}
 df=early_january_weather 
-mean(df$temp)
 
-summary(early_january_weather)
 ```
 
-There are 15 variables in this dataset, which include origin, year, month, day, hour, and temperature. 
+
+The 15 variables in this dataset are `r colnames(early_january_weather)`. 
+Some important variables include origin and time_hour, which show that recordings were made every hour from Jan 1, 2013 to Jan 15, 2013 at weather station EWR. 
+
 The number of rows in the dataset is `r nrow(early_january_weather)`.
+
 The number of columns in the dataset is `r ncol(early_january_weather)`.
+
 The mean temperature is `r mean(df$temp)`.
 
 
@@ -36,14 +41,17 @@ Make scatterplot
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color=humid)) + geom_point()
 
 ```
-The scatterplot shows that temperature increases as POSIXct data increases. In addition, humidity generally increases as both temperature and POSIXct data increases. 
+
+
+The scatterplot shows that from Jan 1, 2013 to Jan 15, 2013, temperature increases as date and hour of the recording increases. Humidity also increases as as date and hour of the recording increases. 
+
 
 Save scatterplot to project directory
 ```{r}
 ggsave("scatterplot.pdf")
 ```
 
-PROBLEM 2
+**PROBLEM 2**
 
 Create dataframe
 
@@ -76,6 +84,6 @@ as.numeric(pull(p2_df, vec_char))
 as.numeric(pull(p2_df, vec_factor))
 ```
 
-The code does not work when trying to convert the character vector and factor vector. This is because these vectors do not have column names. 
+The code does not work when trying to convert the character vector and factor vector to numeric vectors. This is because the logical vector contains numeric values, while the character and factor vectors do not. Since the character and factor vectors do not contain numeric values, they also cannot have a mean. 
 
 
