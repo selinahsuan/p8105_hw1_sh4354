@@ -84,6 +84,6 @@ as.numeric(pull(p2_df, vec_char))
 as.numeric(pull(p2_df, vec_factor))
 ```
 
-The code does not work when trying to convert the character vector and factor vector to numeric vectors. This is because the logical vector contains numeric values, while the character and factor vectors do not. Since the character and factor vectors do not contain numeric values, they also cannot have a mean. 
+The code is able to convert the logical vector and factor vector to numeric values, but the character vector displays values as "NA." This is because the logical vector and factor vector contain values that can be represented with numbers, while the character vector does not. However, only the numbers in the logical vectors are meaningful, such that the mean indicates the percentage of values in the sample that are greater than 1. The factor vector contains numeric values that simply represent 3 categorical levels. As a result, the mean can only be calculated for the logical vector.  
 
 
